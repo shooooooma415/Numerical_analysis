@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import List
 
-class RayleighRequest(BaseModel):
+class PowerMethodRequest(BaseModel):
     matrix: List[List[float]]
-    x: List[float]
-    limit: float
+    v: List[List[float]]
+    tolerance: float
