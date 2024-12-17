@@ -5,16 +5,18 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import numpy as np
 from service.newton import NewtonService
+from service.differential import DifferentiationService
 
 if __name__ == "__main__":
     service = NewtonService()
+    differential = DifferentiationService()
     
     # 方程式とその導関数を定義
     def f(x):
         return x**2 - 2
     
     def df(x):
-        return 2 * x
+        return differential.numerical_derivative(f, x)
     
     # 初期値や条件を設定
     x_initial = 2
