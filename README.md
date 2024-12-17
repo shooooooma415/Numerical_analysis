@@ -8,7 +8,7 @@ Python 3.12.4
 macOS 14.6.1（23G93）
 
 ### requirements.txt
-annotated-types==0.7.0
+annotated-types==0.7.0 \n
 anyio==4.7.0
 click==8.1.7
 h11==0.14.0
