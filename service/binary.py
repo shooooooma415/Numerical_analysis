@@ -1,25 +1,36 @@
-# 二分法
-import numpy as np   
+import numpy as np
 
+class BinarySearchService:
+    def __init__(self):
+        # 初期化が必要であればここに記述
+        pass
 
-def f(x):
-    return x**2 - 10 * np.sin(x) -2
+    def f(self, x):
+        """対象となる関数"""
+        return x**2 - 10 * np.sin(x) - 2
 
-def binarySearch(f, a, b, limit=2.23, max=50):
-    num = 0
-    print("{} {}<=x<={}".format(num, a, b))
-    if(f(a)*f(b) > 0):
-        return
-    while(True):
-        c = (b+a)/2.0
-        if (0.0 < f(c)*f(a)):  
-            a = c  
-        elif(f(b) * f(c) > 0): 
-            b = c 
-        num += 1
-        print("{}回目は a ={}, b = {}より".format(num, a, b))
-        if((b-a >= limit) or max <= num):
-            break
-    print(str(c))
+    def search(self, a, b, tolerance, max_iter=50):
+        """
+        二分法を用いて解を探索する
+        
+        Parameters:
+        - a: 区間の下限
+        - b: 区間の上限
+        - tolerance: 許容誤差
+        - max_iter: 最大反復回数（デフォルト50）
 
-    return c
+        Returns:
+        - 解 (float)
+        """
+        if self.f(a) * self.f(b) > 0:
+            raise ValueError("f(a) と f(b) の符号が同じです")
+
+        for _ in range(max_iter):
+            c = (a + b) / 2.0
+            if abs(b - a) < tolerance:
+                return c
+            if self.f(c) * self.f(a) < 0:
+                b = c
+            else:
+                a = c
+        return (a + b) / 2.0
