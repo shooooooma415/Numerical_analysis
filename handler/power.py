@@ -6,8 +6,6 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import numpy as np
 from service.power import PowerMethodService
 
-import ast
-
 def main():
     # PowerMethodServiceのインスタンスを作成
     service = PowerMethodService()
