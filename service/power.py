@@ -1,28 +1,37 @@
-# 冪乗で固有値計算
-import ast
 import numpy as np
 
-def power(matrix, v, limit=0.001, max_iter=100):
-    n = 0
-    while n < max_iter:
-        x = matrix @ v 
-        r = x[0,0]
-        print(f"反復 {n + 1}  固有値r: {r}")
-        v = x / r 
-        n += 1
-        print("x{}の値は\n{}".format(n,v))
-        if np.linalg.norm(matrix @ v - r * v) < limit:
-            print("収束した！")
-            return r, v   
-    return None
-# 対象の行列
-# 二次元配列で入力
-print("対象となる行列を入力:")
-matrix_A_input = input() 
-matrix_A = np.array(ast.literal_eval(matrix_A_input))
+class PowerMethodService:
+    def __init__(self):
+        pass
 
-# 初期値  
-print("v_0を入力:")
-initialmat_input = input()
-initialmat = np.array(ast.literal_eval(initialmat_input))
-power(matrix_A, initialmat)
+    def calculate(self, matrix, v, max_iter=100):
+        """
+        冪乗法で最大固有値と対応する固有ベクトルを計算する
+
+        Parameters:
+        - matrix: 入力行列 (List[List[float]])
+        - v: 初期ベクトル (List[List[float]])
+        - max_iter: 最大反復回数 (int)
+
+        Returns:
+        - 固有値 (float): 最大固有値
+        - 固有ベクトル (numpy.ndarray): 正規化された固有ベクトル
+        """
+        n = 0
+        matrix = np.array(matrix)  # 行列をNumPy配列に変換
+        v = np.array(v).reshape(-1, 1)  # 初期ベクトルを列ベクトルに変換
+
+        while n < max_iter:
+            # 行列とベクトルの積を計算
+            x = matrix @ v
+            r = round(x[0, 0], 2)  # 固有値の推定値を小数第3位で四捨五入
+            print(f"反復 {n + 1}  固有値 r: {r}")
+
+            # ベクトルの正規化 (小数第3位で四捨五入)
+            v = np.round(x / r, 2)
+            print(f"x{n + 1} の値:\n{v}")
+
+            n += 1
+
+        # 最終的な固有値と固有ベクトルを返す
+        return r, v
