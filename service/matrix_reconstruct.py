@@ -15,12 +15,9 @@ class MatrixReconstructionService:
         Returns:
         - 再構築された行列 (numpy.ndarray)
         """
-        # 固有値の対角行列を作成
         lambda_matrix = np.diag(eigenvalues)
         
-        # 固有ベクトル行列 V
         V = eigenvectors
 
-        # 行列 A = V * Lambda * V.T を計算
         reconstructed_matrix = V @ lambda_matrix @ V.T
         return reconstructed_matrix

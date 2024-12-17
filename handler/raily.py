@@ -8,7 +8,7 @@ from service.raily import RayleighService
 
 def main():
     service = RayleighService()
-    # サンプル行列
+    
     matrix = np.array([[4, 1], [2, 3]])
 
     # 初期ベクトル
@@ -18,7 +18,6 @@ def main():
     max_iter = 3
     
 
-    # 最大固有値と対応する固有ベクトルを求める
     max_eigenvalue, eigenvector = service.calculate(matrix, x, max_iter)
 
     # 結果の表示

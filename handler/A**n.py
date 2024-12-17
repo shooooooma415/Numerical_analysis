@@ -7,14 +7,13 @@ from service.matrix_power import MatrixPowerService
 import numpy as np
 
 def main():
-    # MatrixPowerServiceのインスタンスを作成
     service = MatrixPowerService()
 
     # 入力行列と乗数を指定
     matrix = [
         [1, 2],
         [3, 4]
-    ]  # 2x2の行列
+    ]
     n = 3  # 乗数
 
     # 実行

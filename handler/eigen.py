@@ -7,7 +7,6 @@ import numpy as np
 from service.eigen import EigenService
 
 def main():
-    # EigenServiceのインスタンスを作成
     service = EigenService()
 
     # 入力行列を指定
@@ -16,10 +15,8 @@ def main():
         [1, 0]
     ]
 
-    # 固有値と固有ベクトルの計算
     eigenvalues, eigenvectors = service.calculate(np.array(matrix))
 
-    # 結果を表示
     print("固有値:")
     print(eigenvalues)
     print("\n固有ベクトル:")

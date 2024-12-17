@@ -7,7 +7,6 @@ import numpy as np
 from service.second_eigen import SecondEigenService
 
 def main():
-    # SecondEigenService のインスタンスを作成
     service = SecondEigenService()
 
     # 行列を入力

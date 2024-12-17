@@ -12,13 +12,10 @@ def main():
     eigenvectors = np.array([[1/np.sqrt(2), 1/np.sqrt(2)],
                             [-1/np.sqrt(2), 1/np.sqrt(2)]])
 
-    # MatrixReconstructionServiceのインスタンス作成
     service = MatrixReconstructionService()
 
-    # 固有値と固有ベクトルから行列を再構築
     reconstructed_matrix = service.reconstruct(eigenvalues, eigenvectors)
 
-    # 結果の表示
     print(f"再構築された行列:\n{reconstructed_matrix}")
 
 if __name__ == "__main__":

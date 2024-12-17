@@ -16,7 +16,7 @@ class NewtonService:
         - 解 (float): 指定回数実行後の近似解
         """
         for iteration in range(1, max_iter + 1):
-            x = round(x - f(x) / df(x), 2)  # xを小数第3位で四捨五入
-            f_value = round(f(x), 2)       # f(x)も小数第3位で四捨五入
+            x = round(x - f(x) / df(x), 2)
+            f_value = round(f(x), 2)
             print(f"試行回数: {iteration}, x: {x}")
         return x

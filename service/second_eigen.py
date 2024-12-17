@@ -13,12 +13,10 @@ class SecondEigenService:
         Returns:
         - A_dash: 最大固有値の影響を取り除いた行列 (numpy.ndarray)
         """
-        # 固有値と固有ベクトルを計算
         eigenvalues, eigenvectors = np.linalg.eig(A)
         sorted_pairs = sorted(zip(eigenvalues, eigenvectors.T), key=lambda x: x[0], reverse=True)
         max_eigenvalue, max_eigenvector = sorted_pairs[0]
         
-        # 最大固有ベクトルを転置して影響を取り除く
         max_eigenvector_transposed = np.array(max_eigenvector).reshape(-1, 1)
         A_dash = A - max_eigenvalue * np.dot(max_eigenvector_transposed, max_eigenvector_transposed.T)
         return A_dash

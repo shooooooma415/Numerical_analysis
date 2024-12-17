@@ -7,7 +7,6 @@ import numpy as np
 from service.newton import NewtonService
 
 if __name__ == "__main__":
-    # ニュートンサービスのインスタンスを作成
     service = NewtonService()
     
     # 方程式とその導関数を定義

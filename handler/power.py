@@ -7,7 +7,6 @@ import numpy as np
 from service.power import PowerMethodService
 
 def main():
-    # PowerMethodServiceのインスタンスを作成
     service = PowerMethodService()
 
     matrix = [

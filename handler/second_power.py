@@ -7,7 +7,6 @@ import numpy as np
 from service.second_power import SecondEigenvalueService
 
 def main():
-    # SecondEigenvalueServiceのインスタンスを作成
     service = SecondEigenvalueService()
 
     # 入力行列
@@ -25,10 +24,8 @@ def main():
     # 固有ベクトルを指定
     eigenvector = [[1],[0.24]]
 
-    # 2番目の固有値と A' を計算
     second_eigenvalue, matrix_prime = service.calculate(matrix, eigenvalue, eigenvector, max_iter)
 
-    # 結果の表示
     print("\n2番目に大きい固有値:")
     print(second_eigenvalue)
 

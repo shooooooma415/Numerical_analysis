@@ -22,14 +22,12 @@ class SecondEigenvalueService:
         matrix = np.array(matrix)
         eigenvector = np.array(eigenvector).reshape(-1, 1)
 
-        # 入力された固有値と固有ベクトルを使って影響を取り除いた行列 A'
         eigenvector_normalized = eigenvector / np.linalg.norm(eigenvector)
         matrix_prime = matrix - eigenvalue * (eigenvector_normalized @ eigenvector_normalized.T)
-        matrix_prime = np.round(matrix_prime, 2)  # 小数第3位で丸める
+        matrix_prime = np.round(matrix_prime, 2)
 
         print(f"最大固有値の影響を取り除いた行列 A':\n{matrix_prime}")
 
-        # 2回目: A' に対して冪乗法を適用して2番目の固有値を求める
         second_eigenvalue, _ = self.power_method(matrix_prime, eigenvector, max_iter)
         second_eigenvalue = round(second_eigenvalue, 2)
 
@@ -50,11 +48,10 @@ class SecondEigenvalueService:
         - 固有ベクトル (numpy.ndarray)
         """
         for i in range(max_iter):
-            x = matrix @ v  # 行列とベクトルの積
-            eigenvalue = round(x[0, 0], 2)  # 固有値の推定を小数第3位で丸める
-            v = np.round(x / eigenvalue, 2)  # 正規化して小数第3位で丸める
+            x = matrix @ v 
+            eigenvalue = round(x[0, 0], 2) 
+            v = np.round(x / eigenvalue, 2)
 
-            # 反復ごとの行列と固有値を表示
             print(f"\n反復 {i + 1}: 固有値 r: {eigenvalue}")
             print(f"対応する固有ベクトル:\n{v}")
 
