@@ -13,6 +13,6 @@ class DifferentiationService:
         - var: 微分対象の変数 (sympy.Symbol)
 
         Returns:
-        - f'(x): シンボリック微分の結果 (sympy式)
+        - f'(x): 微分の結果 (sympy式)
         """
         return sp.diff(func, var)
