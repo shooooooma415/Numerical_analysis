@@ -8,9 +8,9 @@ from service.matrix_reconstruct import MatrixReconstructionService
 
 def main():
     # 固有値と固有ベクトル
-    eigenvalues = [5, 3]
-    eigenvectors = np.array([[1/np.sqrt(2), 1/np.sqrt(2)],
-                            [-1/np.sqrt(2), 1/np.sqrt(2)]])
+    eigenvalues = [5.00, 3.00]
+    eigenvectors = np.array([[1/np.sqrt(2), -1/np.sqrt(2)],
+                            [1/np.sqrt(2), 1/np.sqrt(2)]])
 
     service = MatrixReconstructionService()
 

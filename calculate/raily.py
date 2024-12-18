@@ -9,10 +9,10 @@ from service.raily import RayleighService
 def main():
     service = RayleighService()
     
-    matrix = np.array([[4, 1], [2, 3]])
+    matrix = np.array([[4, 1], [1, 4]])
 
     # 初期ベクトル
-    x = np.array([1, 1])
+    x = np.array([0.00, 1.00])
 
     # 反復回数
     max_iter = 3
